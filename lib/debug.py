@@ -33,7 +33,6 @@ Department.get_all()
 Employee.get_all()
 #==> [<Employee 1: Amir, Accountant, Department ID: 1>, <Employee 2: Bola, Manager, Department ID: 1>, <Employee 3: Charlie, Manager, Department ID: 2>, <Employee 4: Dani, Benefits Coordinator, Department ID: 2>, <Employee 5: Hao, New Hires Coordinator, Department ID: 2>]
 
-
 # An employee works in one department. Let's get the first employee:
 employee = Employee.find_by_id(1)
 employee
