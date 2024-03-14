@@ -25,3 +25,32 @@ def reset_database():
 
 reset_database()
 ipdb.set_trace()
+
+
+Department.get_all()
+#==> [<Department 1: Payroll, Building A, 5th Floor>, <Department 2: Human Resources, Building C, East Wing>]
+
+Employee.get_all()
+#==> [<Employee 1: Amir, Accountant, Department ID: 1>, <Employee 2: Bola, Manager, Department ID: 1>, <Employee 3: Charlie, Manager, Department ID: 2>, <Employee 4: Dani, Benefits Coordinator, Department ID: 2>, <Employee 5: Hao, New Hires Coordinator, Department ID: 2>]
+
+
+# An employee works in one department. Let's get the first employee:
+employee = Employee.find_by_id(1)
+employee
+#==> <Employee 1: Amir, Accountant, Department ID: 1>
+
+# We can use the employee `department_id` value to get the single associated `Department` instance:
+Department.find_by_id(employee.department_id)
+#==> <Department 1: Payroll, Building A, 5th Floor>
+
+
+# A department may have many employees. Let's select the payroll department:
+payroll = Department.find_by_id(1)
+payroll
+#==> <Department 1: Payroll, Building A, 5th Floor>
+
+
+# We can call the employees() method to get the list of employees that work in the payroll department.
+payroll.employees()
+# ==> [<Employee 1: Amir, Accountant, Department ID: 1>, <Employee 2: Bola, Manager, Department ID: 1>]
+
